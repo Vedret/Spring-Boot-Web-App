@@ -20,19 +20,22 @@ public class CustomerRepository {
 	@PersistenceContext
 	EntityManager em;
 	
+	
+	//get all customers 
 	public List<Customer> getCustomers() {
 		List<Customer> listCutomers = 
 		em.createQuery("SELECT e FROM Customer e").getResultList();
-
+		
 		return listCutomers;
-	}
+		}
 	
+	//Find customer by id
 	public Customer findById(int id) {
-		
-		
+				
 		return em.find(Customer.class,id);
 	}
 	
+	//Save Customer
 	public Customer saveCustomer(Customer customer) {
 		
 		if(customer==null) {
@@ -43,12 +46,15 @@ public class CustomerRepository {
 		return customer;
 	}
 	
-	public void deleteById(int id) {
+	//delete customer by id
+	public Customer deleteById(int id) {
 		
 		Customer customer=findById(id);
 		em.remove(customer);
+		return customer;
 	}
 	
+	//Add licence for customer by id
 	public void addLicenceForCustomer(Licence licence , int id) {
 		
 		//get customer by id
@@ -61,6 +67,37 @@ public class CustomerRepository {
 		em.persist(licence);		
 	}
 	
+	//Get All licence
+	public List<Customer> getAllLicence() {
+		List<Customer> listEmAllLicence = 
+		em.createQuery("SELECT e FROM Customer e ").getResultList();
+
+		
+		return listEmAllLicence;
+	}
+	
+	
+
+	//Find licence by id
+    public Licence findLicenceById(int id) {
+
+		return em.find(Licence.class,id);
+	}
+	
+    //Delete licence by id
+	public void deleteLicence(int theId) {
+		
+		Licence licence=findLicenceById(theId);
+		em.remove(licence);	
+	}
+ 
+	public Licence getLicenceCustomer(int theId) {
+
+			return em.find(Licence.class,theId);
+	}
+	
+	
+
 	
 
 }

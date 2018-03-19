@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -24,7 +25,7 @@ public class Customer {
 	@GeneratedValue
 	int id;
 	
-	@Column(nullable = false)
+	@Column(nullable = false,unique=true)
 	@NotEmpty(message="Polje ne smije biti prazno")
 	String name;
 	
@@ -41,7 +42,7 @@ public class Customer {
 	
 	String opis;
 	
-	@OneToMany(mappedBy="customer")	
+	@OneToMany(mappedBy="customer",fetch=FetchType.EAGER)	
 	private List<Licence> licence = new ArrayList<>();
 	
 	public Customer() {
@@ -57,9 +58,26 @@ public class Customer {
 		this.addressa = addressa;
 		this.grad = grad;
 	}
+	
+
 
 
 	
+
+	public Customer( String name,
+			String eMail, String phone, String addressa, String grad,
+			String opis, List<Licence> licence) {
+		super();
+		this.name = name;
+		this.eMail = eMail;
+		this.phone = phone;
+		this.addressa = addressa;
+		this.grad = grad;
+		this.opis = opis;
+		this.licence = licence;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -135,6 +153,21 @@ public class Customer {
 		this.licence.remove(licence);
 	}
 	
+	
+
+
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", eMail=" + eMail + ", phone=" + phone + ", addressa="
+				+ addressa + ", grad=" + grad + ", opis=" + opis + ", licence=" + licence + "]";
+	}
+
+
+
+
+
+
 	
 
 	

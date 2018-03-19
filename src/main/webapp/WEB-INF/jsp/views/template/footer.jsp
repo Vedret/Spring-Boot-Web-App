@@ -22,10 +22,43 @@
     <script src="<c:url value="/data/morris-data.js" />"></script>
    
     
+    <!-- DataTables JavaScript -->
+    <script src="<c:url value="/vendor/datatables/js/jquery.dataTables.min.js"/>"> </script>
+    <script src="<c:url value="/vendor/datatables-plugins/dataTables.bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/vendor/datatables-responsive/dataTables.responsive.js"/>"></script>
+    
 
     <!-- Custom Theme JavaScript
     <script src="../dist/js/sb-admin-2.js"></script> -->
     <script src="<c:url value="/dist/js/sb-admin-2.js" />" > </script>
+      <script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/js/bootstrap-switch.min.js' type='text/javascript'></script>
+    
+      <script type="text/javascript"  >
+					  $(document).ready(function() {  
+					
+					  $('#datepicker').datepicker(
+							  {
+								    format: 'dd/mm/yyyy'
+								   
+								}	  
+					  );
+					});
+    </script>
+    
+    
+     <!-- Custom Theme JavaScript PAGINATION -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
+    
+    
+    
+   
 
 </body>
 

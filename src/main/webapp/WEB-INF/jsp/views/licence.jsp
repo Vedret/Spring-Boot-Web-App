@@ -17,78 +17,128 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-6">
-
-
-							<div class="form-group">
-								<label for="disabledSelect">Korisnik</label> <select
-									name="database1" id="disabledSelect" class="form-control">
-									<option> </option>
+						
+							 
+							 
+							 <!-- need to associate this data with customer id -->
+							 
+							 	
+							
+							<form:form role="form" action="saveLicence" modelAttribute="licence"  method="POST">
+							<form:hidden path="id" />
+							
+							<div class="form-group ">
+							
+								<ul class="errorMessages"></ul>
+								<label for="disabledSelect">Korisnik</label> 
+								<select required name="customerid" id="disabledSelect" class="form-control">
+									<option value="">Izaberite korisnika</option>
+									 
 									<c:forEach items="${customer}" var="databaseValue">
-										<option value="${databaseValue.name}">
-                              ${databaseValue.name}
-                            </option>
-									</c:forEach>
-								</select>
+										
+										<option   value="${databaseValue.id}"   >
+										
+										
+	                              ${databaseValue.id} ${databaseValue.name}
+	                             
+	                              
+	                            </option>
+	                         
+	                          
+	                          
+										</c:forEach>
+										
+									</select>						
 							</div>
+							
+							
+					 		
+							
+							<div class="form-group">
+								 <form:select path="tipLicence" >
+                                            <label>Radio Buttons</label>
+                                            <div class="radio">
+                                                <label>                                          	
+                                                    <form:option type="radio" name="optionsRadios" id="optionsRadios1" value="Windows" />Windows
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <form:option   type="radio" name="optionsRadios" id="optionsRadios2" value="Anti virus"/>Anti virus
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <form:option  type="radio" name="optionsRadios" id="optionsRadios3" value="Firewall/Router"/>Firewall/Router
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <form:option  type="radio" name="optionsRadios" id="optionsRadios3" value="Racunar PC/Server"/>Racunar PC/Server
+                                                </label>
+                                            </div>
+                                   </form:select>         
+                                         
+                            </div> 
+								
+							
 
-
-							<form:form role="form" action="saveCustomer"
-								modelAttribute="customer" method="POST">
-								<!-- need to associate this data with customer id -->
-								<form:hidden path="id" />
-
-
-								<div class="form-group">
-									<label>Naziv korisnika</label>
-									<form:errors path="name" cssStyle="color: #ff0000;" />
-									<form:input path="name" class="form-control"
-										placeholder="Naziv korisnika" />
+								
+							      <div class="form-group row ">
+							      
+							        <div class="col-xs-4">
+							        	<label>Datum</label>	
+							            <form:input path="pocetakTrajanjaLicence"  type='text' class="form-control" id='datepicker' />
+							        </div>
+							            
+							        <div class="col-xs-4">
+							        	<label>Isporuceno</label>	
+							            <form:input path="istekLicence"  type='text' class="form-control" id='datepicker' />
+							        </div>
+							            
+							        <div class="col-xs-4">
+							        	<label>Istice</label>	
+							            <form:input path="isporuceno"  type='text' class="form-control" id='datepicker' />
+							        </div>
+							     
+													        
+								<!--<div class="col-xs-4">
+								<form:input path="istekLicence" class="form-control" type="datepicker" placeholder='Do' ></form:input>
 								</div>
-
-								<div class="form-group">
-									<label>eMail korisnika</label>
-									<form:errors path="eMail" cssStyle="color: #ff0000;" />
-									<form:input path="eMail" class="form-control"
-										placeholder="eMail" />
+								
+								<div class="col-xs-4">
+								<form:input  path="isporuceno"  class="form-control" type="datepicker" placeholder='Isporuceno' /> 
+								</div>-->
+							
+							</div>
+							
+							
+							<label>Broj</label>
+							<div class="form-group row ">
+							
+								<div class="col-xs-4">
+								<form:input path="katBroj"  class="form-control" placeholder='Kat. broj'  ></form:input>
 								</div>
-
-								<div class="form-group">
-									<label>Broj telefona korisnika</label>
-									<form:input type="tel" path="phone" class="form-control"
-										placeholder="Broj telefona korisnika" />
+								
+								<div class="col-xs-4">
+								<form:input path="brojPredracuna"   class="form-control" placeholder='Broj predracuna'  ></form:input>
 								</div>
-
-								<div class="form-group">
-									<label>Adresa korisnika</label>
-									<form:input path="addressa" class="form-control"
-										placeholder="Adresa korisnika" />
+								
+								<div class="col-xs-4">
+								<form:input  path="kolicinaLicenci" class="form-control" placeholder='Kolicina'/> 
 								</div>
-
-								<div class="form-group">
-									<label>Grad</label>
-									<form:input path="grad" class="form-control" placeholder="Grad" />
-								</div>
-
-
-
-
-
-								<div class="form-group">
-									<label>Opis</label>
-									<textarea class="form-control" rows="3"></textarea>
-								</div>
-						</div>
-
-						<td><input type="submit" value="Save" class="btn btn-default" /></td>
-						<button type="reset" class="btn btn-default">Reset Button</button>
-
-						</form:form>
-
-
-					</div>
-
-					<!-- /.col-lg-6 (nested) -->
-				</div>
+							
+							</div>
+							
+							<div class="form-group">
+                                <label>Opis</label>                               
+                                <form:textarea path="opis"  class="form-control" rows="3" />                              
+                            </div>
+										
+					<td><input type="submit" value="Save" class="btn btn-default" /></td>
+                    <button type="reset" class="btn btn-default">Reset Button</button>	
+                  
+				</form:form>
 				<!-- /.row (nested) -->
 			</div>
 			<!-- /.panel-body -->
@@ -101,5 +151,8 @@
 </div>
 <!-- /#page-wrapper -->
 
+</div>
+</div>
+</div>
 </div>
 <%@include file="/WEB-INF/jsp/views/template/footer.jsp"%>
