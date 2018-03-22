@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="contextPath" value=""/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,30 +14,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Log in with your account</title>
+    <title>Log in with your credentials</title>
 
-    <link href="<c:url value="vendor/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
-    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-<p></p>
-<div class="container"  style="top:10%">
-  <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
-                    </div>
-     <div class="panel-body">               
-    <form method="POST" action="${contextPath}/login" class="form-signin">
-        
+
+<div class="container">
+
+    <form method="POST" action="/login" class="form-signin">
+        <h2 class="form-heading">Log in</h2>
 
         <div class="form-group  ${error != null ? 'has-error' : ''}">
         	
@@ -53,16 +40,11 @@
            
         </div>
 
+
     </form>
-    </div>
-    
-</div>
-</div>
-</div>
+
 </div>
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-
-</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></body>
 </html>

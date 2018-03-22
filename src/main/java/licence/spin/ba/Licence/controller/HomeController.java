@@ -36,7 +36,7 @@ public class HomeController {
 	@Autowired
 	private LicenceRepository licenceService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String home ( ModelMap model) {
 
 		//List em all 
@@ -61,7 +61,7 @@ public class HomeController {
 		
 		customerService.deleteLicence(theId);
 
-		return "redirect:/";
+		return "redirect:/home";
 	}
 
 	@RequestMapping(value = "/showFormUpdate", method = RequestMethod.GET)
@@ -87,7 +87,7 @@ public class HomeController {
 		theLicenca.setId(id);
 		licenceService.updateLicence(theLicenca,id);
 		
-		return "redirect:/";
+		return "redirect:/home";
 		
 	}
 	

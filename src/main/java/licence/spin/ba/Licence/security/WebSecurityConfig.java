@@ -27,7 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/**", "/registration").permitAll().anyRequest().authenticated().and()
+                .authorizeRequests()
+                    .antMatchers("/h2/**","/resources/**", "/registration").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
                 .formLogin()
                     .loginPage("/login")
                     .permitAll()
@@ -35,20 +38,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                     .permitAll()
                     .and()
-                    .authorizeRequests()
-                    .antMatchers("/static/**").permitAll()
-                    .anyRequest().authenticated();
-        
-        http.authorizeRequests().antMatchers("/").permitAll().and()
-		        .authorizeRequests().antMatchers("/h2/**").permitAll();
-		 http.csrf().disable();
-		http.headers().frameOptions().disable();
+              	  .csrf()
+              		.ignoringAntMatchers("/h2/**");
+        		http.headers().frameOptions().disable();
     }
 
     @Autowired
-    
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
-
+    
+   /* http.authorizeRequests().antMatchers("/").permitAll().and()
+   		        .authorizeRequests().antMatchers("/h2/**").permitAll();
+    		 http.csrf().disable();
+    		http.headers().frameOptions().disable();
+*/
+    
+    /*    .and()
+	  .csrf()
+		.ignoringAntMatchers("/h2/**");
+		
+	  http.headers().frameOptions().disable();*/
 }
