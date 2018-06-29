@@ -26,9 +26,9 @@
 	<link href="<c:url value="/vendor/metisMenu/metisMenu.min.css" />" rel="stylesheet">
 	
 	
-    <!-- Custom CSS 
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">-->
-    <link href="<c:url value="/dist/css/sb-admin-2.css" />"rel="stylesheet">
+    
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom CSS <link href="<c:url value="/dist/css/sb-admin-2.css" />"rel="stylesheet">-->
     
 
     <!-- Morris Charts CSS 
