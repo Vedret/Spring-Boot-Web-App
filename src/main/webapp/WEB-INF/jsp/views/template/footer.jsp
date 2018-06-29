@@ -28,9 +28,10 @@
     <script src="<c:url value="/vendor/datatables-responsive/dataTables.responsive.js"/>"></script>
     
 
+    
+    <script src="../dist/js/sb-admin-2.js"></script>
     <!-- Custom Theme JavaScript
-    <script src="../dist/js/sb-admin-2.js"></script> -->
-    <script src="<c:url value="/dist/js/sb-admin-2.js" />" > </script>
+    <script src="<c:url value="/dist/js/sb-admin-2.js"/>" > </script> -->
       <script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
   <script src='//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/js/bootstrap-switch.min.js' type='text/javascript'></script>
     

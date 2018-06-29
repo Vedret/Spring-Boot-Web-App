@@ -27,7 +27,7 @@
 	
 	
     
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/dist/css/sb-admin-2.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS <link href="<c:url value="/dist/css/sb-admin-2.css" />"rel="stylesheet">-->
     
 
