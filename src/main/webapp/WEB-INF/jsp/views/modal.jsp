@@ -1,21 +1,31 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+
+
+
 <div class="modal-header">
 
 	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	<h4 class="modal-title">Modal Header</h4>
+	<h4 class="modal-title">Update</h4>
 </div>
-<div class="modal-body">
+<div class="modal-body" >
 
-	<p>Some text Jebace matere djelim na faktore</p>
+	<p>Forma za update korisnika</p>
 
-	<form:form action="update" modelAttribute="theLicenca"
-		method="GET">
+	<form:form action="update" modelAttribute="theLicenca" method="GET">
 
 		<!-- need to associate this data with customer id -->
 		<form:hidden path="id" />
+		<style>
+					td {
+						 padding: 10px 0
+						}
+						
+						#container {width:100%; text-align:center;}
+						
+		</style>
 
-		<table>
+		<table >
 			<tbody>
 				<!-- 		<tr>
 																	<td><label>Tip licence</label></td>
@@ -61,16 +71,16 @@
 				<tr>
 					<td>
 						<div class="col-xs-4">
-							<label>Isporuceno</label>
-							<form:input path="isporuceno" type='text' class="form-control"
+							<label>instalirano</label>
+							<form:input path="instalirano" type='text1' class="form-control"
 								id='datepicker' />
 						</div>
 					</td>
 
 					<td>
 						<div class="col-xs-4">
-							<label>Traje do</label>
-							<form:input path="istekLicence" type='text' class="form-control"
+							<label>Dat</label>
+							<form:input path="datumIsteka" type='text1' class="form-control"
 								id='datepicker' />
 						</div>
 					</td>
@@ -78,21 +88,19 @@
 
 					<td>
 						<div class="col-xs-4">
-							<label>Istice</label>
-							<form:input path="isporuceno" type='text' class="form-control"
+							<label>Instalirano</label>
+							<form:input path="instalirano" type='text1' class="form-control"
 								id='datepicker' />
 						</div>
 					</td>
 				</tr>
-				<p>
-				<p>
-				<p>
+				
 				<tr>
 					<div class="form-group row ">
 						<td>
 							<div class="col-xs-4">
-								<label>Broj</label>
-								<form:input path="katBroj" class="form-control"
+								<label>Br. fakt</label>
+								<form:input path="brojFakture" class="form-control"
 									placeholder='Kat. broj'></form:input>
 							</div>
 						</td>
@@ -106,20 +114,23 @@
 						<td>
 							<div class="col-xs-4">
 								<label></label>
-								<form:input path="kolicinaLicenci" class="form-control"
+								<form:input type="number" path="kolicinaLicenci" class="form-control"
 									placeholder='Kolicina' />
 							</div>
+							
 						</td>
-
+						
 					</div>
+					
+					
 				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
-                                                              
-                                <form:textarea path="opis"  class="form-control" rows="3" />                              
-                        </div>
+				<tr>                 
+					<td colspan="110" >
+					<div class="form-group">
+					<form:textarea text-align="center" placeholder='Opis' path="opis"  class="form-control" rows="3" cols="110" />                              
+	                </div>  
 					</td>
+					
 				</tr>
 				
 
@@ -127,21 +138,22 @@
 			</tbody>
 		</table>
 
-	<td><input type="submit" value="Save" class="btn btn-default" /></td>
-	</form:form>
-
-
-
-</div>
-<div class="modal-footer">
 	
+	
+
+
+
+<div class="modal-footer">
+	<input type="submit" value="Save" class="btn btn-default" />
 	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 
+</form:form>
+</div>
 <script type="text/javascript">
 																		  $(document).ready(function() {  
 																		
-																		  $('#datepicker').datepicker(
+																		  $("[type$=text1]").datepicker(
 																				  {
 																					    format: 'dd/mm/yyyy'
 																					   

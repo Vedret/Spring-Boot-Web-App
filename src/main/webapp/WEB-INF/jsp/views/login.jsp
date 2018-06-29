@@ -5,7 +5,8 @@
 <c:set var="contextPath" value=""/>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,18 +16,32 @@
     <meta name="author" content="">
 
     <title>Log in with your credentials</title>
+    <style>
+    .ct {
+    	  position: absolute;
+		  width: 300px;
+		  height: 100px;
+		  z-index: 15;
+		  top: 30%;
+		  left: 50%;
+		  margin: -100px 0 0 -150px;
+ 
+       
+    }
+  </style>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body>
+<body >
 
-<div class="container">
+
+<div class="ct"  >
 
     <form method="POST" action="/login" class="form-signin">
         <h2 class="form-heading">Log in</h2>
 
-        <div class="form-group  ${error != null ? 'has-error' : ''}">
+        <div class="form-group  ${error != null ? 'has-error' : ''}" >
         	
             <span>${message}</span>
             <input name="username" type="text" class="form-control" placeholder="Username"

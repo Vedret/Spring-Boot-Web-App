@@ -37,7 +37,7 @@
       <script type="text/javascript"  >
 					  $(document).ready(function() {  
 					
-					  $('#datepicker').datepicker(
+					  $("[type$=text1]").datepicker(
 							  {
 								    format: 'dd/mm/yyyy'
 								   
@@ -49,15 +49,17 @@
     
      <!-- Custom Theme JavaScript PAGINATION -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-    </script>
-    
-    
-    
+		    $(document).ready(function() {
+		        $('#dataTables-example').DataTable({
+		            responsive: true,
+		            sInfo: true
+		        });
+		    });
+		    
+		   
+	</script>
+		    
+   
    
 
 </body>

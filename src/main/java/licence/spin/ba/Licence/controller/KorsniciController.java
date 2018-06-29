@@ -40,7 +40,7 @@ public class KorsniciController {
 		// save the customer using our service
 		customerService.saveCustomer(theCustomer);	
 		
-		return "korisnici";
+		return "redirect:korisnici";
 	}
 
 }

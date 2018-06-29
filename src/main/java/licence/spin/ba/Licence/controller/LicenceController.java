@@ -1,27 +1,33 @@
 package licence.spin.ba.Licence.controller;
 
-
-
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
+
+
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import licence.spin.ba.Licence.Repository.CustomerRepository;
 
@@ -29,71 +35,77 @@ import licence.spin.ba.Licence.entity.Customer;
 import licence.spin.ba.Licence.entity.Licence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 @Controller
 public class LicenceController {
-	
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	private CustomerRepository customerRepository;
-	
 
-	
-	
-	/*@InitBinder("licence")
-	    public void initBinder( WebDataBinder binder) {
-		 
-		System.out.println("Init Binderrr " +binder.getObjectName());
-			try {
-				
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-				dateFormat.setLenient(false);
-				binder.registerCustomEditor(Date.class, "pocetakTrajanjaLicence",
-                        new CustomDateEditor(dateFormat, true));
-				
-				
-			} catch (Exception e) {
-				System.out.println("Catch bloookkk   ---------");
-				e.printStackTrace();
-			}
-	    }*/
-	
+	private Path path;
+
 	@RequestMapping("/licence")
 	public String licence(ModelMap model) {
-		
-		List<Customer> theCustomer= customerRepository.getCustomers();	
-	
+
+		List<Customer> theCustomer = customerRepository.getCustomers();
+
 		Licence theLicence = new Licence();
-		
+
 		model.addAttribute("customer", theCustomer);
 		model.addAttribute("licence", theLicence);
-		
+
 		for (int i = 0; i < theCustomer.size(); i++) {
-			System.out.println("Print iz licencecee------------>>"+theCustomer.get(i));
+			System.out.println("Print iz licencecee------------>>" + theCustomer.get(i));
 		}
-		
+
 		return "licence";
 	}
-	
 
-	
-	@RequestMapping("/saveLicence")
-	public String saveLicence(@RequestParam("customerid") String  customerid,@Valid @ModelAttribute("licence") Licence theLicence ,BindingResult result) {
-		
-		int id=Integer.parseInt(customerid);
-		
+	@PostMapping("/saveLicence")
+	public String saveLicence(@RequestParam("customerid") String customerid,
+			
+		 @Valid @ModelAttribute("licence") Licence theLicence, 
+			BindingResult result, HttpServletRequest request, 
+			RedirectAttributes redirectAttributes)throws IOException {
 
-		if(result.hasErrors()) {
+		int id = Integer.parseInt(customerid);
+
+		if (result.hasErrors()) {
 			System.out.println("Greska " + result);
-	            return "redirect:/licence";
-	        }
-		
+			return "redirect:/licence";
+		}
+
 		// save the customer using our service
-		customerRepository.addLicenceForCustomer(theLicence,id);
+		customerRepository.addLicenceForCustomer(theLicence, id);
 		
+
+		
+		//Save document
+		MultipartFile productImage = theLicence.getProductImage();
+		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+		path = Paths.get(rootDirectory + "resources\\documents\\" + theLicence.getId() + "_"
+				+ productImage.getOriginalFilename());
+		
+		
+
+		  if (productImage != null && !productImage.isEmpty()) {
+			try {
+				productImage.transferTo(new File(path.toString()));
+				redirectAttributes.addFlashAttribute("message",
+	                    "You successfully uploaded "); 
+				System.out.println("Snimio fileeee????????");
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("product image saving failed", e);
+			}
+		}
+		 
 		return "redirect:/licence";
 	}
 	
-	
+
+
 
 }

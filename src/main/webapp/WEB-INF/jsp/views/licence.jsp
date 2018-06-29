@@ -24,7 +24,7 @@
 							 
 							 	
 							
-							<form:form role="form" action="saveLicence" modelAttribute="licence"  method="POST">
+							<form:form id="upload-file-form"   role="form" action="saveLicence" modelAttribute="licence"  method="POST" enctype="multipart/form-data" >
 							<form:hidden path="id" />
 							
 							<div class="form-group ">
@@ -88,44 +88,52 @@
 							      
 							        <div class="col-xs-4">
 							        	<label>Datum</label>	
-							            <form:input path="pocetakTrajanjaLicence"  type='text' class="form-control" id='datepicker' />
+							            <form:input path="datumPrijave"  type='text1' class="form-control" id='datepicker' />
 							        </div>
 							            
 							        <div class="col-xs-4">
-							        	<label>Isporuceno</label>	
-							            <form:input path="istekLicence"  type='text' class="form-control" id='datepicker' />
+							        	<label>Datum Isteka</label>	
+							            <form:input path="datumIsteka"  type='text1' class="form-control" id='datepicker' />
 							        </div>
 							            
 							        <div class="col-xs-4">
-							        	<label>Istice</label>	
-							            <form:input path="isporuceno"  type='text' class="form-control" id='datepicker' />
+							        	<label>Instalirano</label>	
+							            <form:input path="instalirano"  type='text1' class="form-control" id='datepicker' />
+							        </div>
+							        
+							         <div class="col-xs-4">
+							        	<label>Fakturisano</label>	
+							            <form:input path="fakturisano"  type='text1' class="form-control" id='datepicker' />
 							        </div>
 							     
 													        
 								<!--<div class="col-xs-4">
-								<form:input path="istekLicence" class="form-control" type="datepicker" placeholder='Do' ></form:input>
+								<form:input path="datumIsteka" class="form-control" type="datepicker" placeholder='Do' ></form:input>
 								</div>
 								
 								<div class="col-xs-4">
-								<form:input  path="isporuceno"  class="form-control" type="datepicker" placeholder='Isporuceno' /> 
+								<form:input  path="instalirano"  class="form-control" type="datepicker" placeholder='instalirano' /> 
 								</div>-->
 							
 							</div>
 							
 							
-							<label>Broj</label>
+							
 							<div class="form-group row ">
 							
 								<div class="col-xs-4">
-								<form:input path="katBroj"  class="form-control" placeholder='Kat. broj'  ></form:input>
+								<label>Br. fakture</label>	
+								<form:input path="brojFakture"  class="form-control" placeholder='Broj fakture'  ></form:input>
 								</div>
 								
 								<div class="col-xs-4">
+								<label>Br. predrac.</label>	
 								<form:input path="brojPredracuna"   class="form-control" placeholder='Broj predracuna'  ></form:input>
 								</div>
 								
 								<div class="col-xs-4">
-								<form:input  path="kolicinaLicenci" class="form-control" placeholder='Kolicina'/> 
+								<label>Br. licenci</label>	
+								<form:input  path="kolicinaLicenci" class="form-control" placeholder='Broj Licenci'/> 
 								</div>
 							
 							</div>
@@ -134,11 +142,21 @@
                                 <label>Opis</label>                               
                                 <form:textarea path="opis"  class="form-control" rows="3" />                              
                             </div>
+                            
+                          
+					
+					    <p style="color:red;">${message}</p>
+					
+							<div>
+					        <label class="control-label" for="productImage">Upload file</label>
+					        <form:input id="productImage"  path="productImage" type="file"  />
+					       </div>
 										
 					<td><input type="submit" value="Save" class="btn btn-default" /></td>
                     <button type="reset" class="btn btn-default">Reset Button</button>	
-                  
+                  	
 				</form:form>
+				
 				<!-- /.row (nested) -->
 			</div>
 			<!-- /.panel-body -->

@@ -1,12 +1,13 @@
 <%@include file="/WEB-INF/jsp/views/template/header.jsp" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
          
 
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Korisnici</h1>
+                    <h1 class="page-header">Korisnici licenci</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -15,7 +16,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           Tabela korisnika licenci , evidencija racunara
+                           Tabela korisnika licenci , evidencija 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -26,7 +27,7 @@
                                         <th>Korisnik</th>
                                         <th>eMail</th>
                                         <th>Tip</th>
-                                        <th>Kat.br</th>
+                                        <th>Broj fakture</th>
                                         <th>Kolicina</th>                                       
                                         <th>Isporuceno</th>
                                         <th>Traje do</th> 
@@ -52,6 +53,10 @@
 												 <c:url var="updateLink" value="/showFormUpdate">
 													 <c:param name="licenceId" value="${ph1.id}" />
 												</c:url>
+												
+												 <c:url var="downloadDoc" value="/downloadDoc">
+													 <c:param name="licenceId" value="${ph1.id}" />
+												</c:url>
 					        	
 					        	
 					        	
@@ -60,11 +65,11 @@
 							        	<td width ="25%">${ph.name}</td>
 							        	<td width ="15%">${ph.eMail}</td>
 							        	<td>${ph1.tipLicence}</td>
-							        	<td>${ph1.katBroj}</td>
-							        	<td >${ph1.kolicinaLicenci}</td>
-							        	<td>${ph1.isporuceno}</td>
-							        	<td>${ph1.istekLicence}</td>
-							        	<td width ="10%">
+							        	<td>${ph1.brojFakture}</td>
+							        	<td >${ph1.kolicinaLicenci}</td>							        	
+							        	<td><fmt:formatDate value="${ph1.instalirano}" pattern="dd.MM.yyyy" /> </td>
+							        	<td><fmt:formatDate value="${ph1.datumIsteka}" pattern="dd.MM.yyyy" /></td>
+							        	<td width ="15%">
 							        	
 							        	
 							        	
@@ -92,7 +97,10 @@
 												|
 											<a href="${deleteLink}" onclick="if (!(confirm('Da li ste sigurni da zelite obrisati ovo?'))) return false">Delete</a>
 												 |	 
-											<a href="${pdfLink}" target="_blank">PDF</a>  
+											<a href="${pdfLink}" target="_blank">PDF</a>  											
+												|	
+											<a href="${downloadDoc}" target="_blank">Doc</a>	
+										 <!--	<a href="<spring:url value="/resources/documents/2"/>">download</a>	-->
 							        	</td>
 						        	</tr>     
 								</c:forEach>
@@ -103,9 +111,9 @@
                             </table>
                             <!-- /.table-responsive -->
                             <div class="well">
-                                <h4>DataTables Usage Information</h4>
-                                <p>DataTables is a very flexible, advanced tables plugin for jQuery. In SB Admin, we are using a specialized version of DataTables built for Bootstrap 3. We have also customized the table headings to use Font Awesome icons in place of images. For complete documentation on DataTables, visit their website at <a target="_blank" href="https://datatables.net/">https://datatables.net/</a>.</p>
-                                <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>
+                                <h4>Tabelarni prikaz korisnika licenci</h4>
+                                <p>Tabela pokazuje sve korisnike licenci , datume izdavanja i kolicine. U slucaju isteka licence program ce automatski eMailom da obavjesti administratora o vrsti licence i nazivu korisnika . </p>
+                                <!-- <a class="btn btn-default btn-lg btn-block" target="_blank" href="https://datatables.net/">View DataTables Documentation</a>  -->
                             </div>
                         </div>
                         <!-- /.panel-body -->

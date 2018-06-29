@@ -45,11 +45,11 @@ public class LicenceRepository {
 		try
 	    {
 			
-			Query query = em.createNativeQuery("UPDATE LICENCE SET Istek_Licence=?,Isporuceno=?,Kat_Broj=?,Broj_Predracuna=?,Kolicina_Licenci=?,opis=?,Tip_Licence=?  WHERE ID=?",Licence.class);
-			query.setParameter(1, licence.getIstekLicence());
-			query.setParameter(2, licence.getIsporuceno());
-			query.setParameter(3, licence.getKatBroj());
-			query.setParameter(4, licence.getBrojPredracuna());
+			Query query = em.createNativeQuery("UPDATE LICENCE SET datum_Isteka=?,instalirano=?,fakturisano=?,broj_Fakture=?,Kolicina_Licenci=?,opis=?,Tip_Licence=?  WHERE ID=?",Licence.class);
+			query.setParameter(1, licence.getdatumIsteka());
+			query.setParameter(2, licence.getInstalirano());
+			query.setParameter(3, licence.getFakturisano());
+			query.setParameter(4, licence.getbrojFakture());
 			query.setParameter(5, licence.getKolicinaLicenci());			
 			query.setParameter(6, licence.getOpis());
 			query.setParameter(7, licence.getTipLicence());
