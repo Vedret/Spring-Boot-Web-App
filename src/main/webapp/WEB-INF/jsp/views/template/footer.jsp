@@ -15,11 +15,11 @@
     <!-- Morris Charts JavaScript 
     <script src="../vendor/raphael/raphael.min.js"></script>
     <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>-->
+    <script src="../data/morris-data.js"></script>
     
     <script src="<c:url value="/vendor/raphael/raphael.min.js" />"></script>
     <script src="<c:url value="/vendor/morrisjs/morris.min.js" />"></script>
-    <script src="<c:url value="/data/morris-data.js" />"></script>
+    <script src="<c:url value="/data/morris-data.js" />"></script>-->
    
     
     <!-- DataTables JavaScript -->

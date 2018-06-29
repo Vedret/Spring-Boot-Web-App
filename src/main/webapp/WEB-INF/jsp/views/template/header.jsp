@@ -27,13 +27,13 @@
 	
 	
     
-    <link href="/dist/css/sb-admin-2.css" rel="stylesheet" type="text/css">
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS <link href="<c:url value="/dist/css/sb-admin-2.css" />"rel="stylesheet">-->
     
 
     <!-- Morris Charts CSS 
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">-->
-    <link href="<c:url value="/vendor/morrisjs/morris.css" />" rel="stylesheet">
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="<c:url value="/vendor/morrisjs/morris.css" />" rel="stylesheet">-->
 
     <!-- Custom Fonts 
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
