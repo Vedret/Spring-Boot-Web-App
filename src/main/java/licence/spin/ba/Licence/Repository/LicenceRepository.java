@@ -1,15 +1,10 @@
 package licence.spin.ba.Licence.Repository;
-
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Repository;
-
-import licence.spin.ba.Licence.entity.Customer;
 import licence.spin.ba.Licence.entity.Licence;
 
 @Repository

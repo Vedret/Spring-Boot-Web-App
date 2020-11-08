@@ -24,7 +24,7 @@ public class LicenceApplication extends SpringBootServletInitializer  {
 	@Autowired
 	CustomerRepository repository;
 	
-	private int maxUploadSizeInMb = 10 * 1024 * 1024; // 10 MB
+	//private int maxUploadSizeInMb = 10 * 1024 * 1024; // 10 MB
 	
 	@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

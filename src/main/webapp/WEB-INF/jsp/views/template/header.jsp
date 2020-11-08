@@ -16,29 +16,25 @@
     <title>Licence</title>
 	
     <!-- Bootstrap Core CSS 
-     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-     <link href="<c:url value="/vendor/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
-     
-    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+     <link href="<c:url value="/vendor/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">     
+       
 
-    <!-- MetisMenu CSS 
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet"> -->
-	<link href="<c:url value="/vendor/metisMenu/metisMenu.min.css" />" rel="stylesheet">
-	
-	
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css" rel="stylesheet" type="text/css" />
-    <!-- <link href="dist/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
-    Custom CSS <link href="<c:url value="/dist/css/sb-admin-2.css" />"rel="stylesheet">-->
-    
+       <!-- MetisMenu CSS -->
+        <link href="<c:url value="/vendor/metisMenu/metisMenu.min.css" />" rel="stylesheet">
 
-    <!-- Morris Charts CSS 
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-    <link href="<c:url value="/vendor/morrisjs/morris.css" />" rel="stylesheet">-->
+        <!-- Timeline CSS -->
+        <link href="<c:url value="/vendor/bootstrap/css/timeline.css" />" rel="stylesheet"> 
 
-    <!-- Custom Fonts 
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-    <link href="<c:url value="/vendor/font-awesome/css/font-awesome.min.css" />" rel="stylesheet">
-    
+        <!-- Custom CSS -->
+        <link href="<c:url value="/vendor/bootstrap/css/startmine.css" />" rel="stylesheet">  
+
+        <!-- Morris Charts CSS -->
+        <link href="<c:url value="/vendor/morrisjs/morris.css" />" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="<c:url value="/vendor/font-awesome/css/font-awesome.min.css" />" rel="stylesheet" />
+
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

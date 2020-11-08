@@ -1,20 +1,10 @@
 package licence.spin.ba.Licence.view;
-
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
-
-import javax.imageio.ImageIO;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.core.io.ClassPathResource;
-
 import com.itextpdf.text.BaseColor;
-
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;

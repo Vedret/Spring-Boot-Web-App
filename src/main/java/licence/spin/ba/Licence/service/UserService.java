@@ -1,6 +1,4 @@
 package licence.spin.ba.Licence.service;
-
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import licence.spin.ba.Licence.entity.User;
