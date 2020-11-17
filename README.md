@@ -1,9 +1,9 @@
-### The Licence Tracker application
+# [The Licence Tracker application](https://licencetracker.herokuapp.com/)
 
 Licence tracker is designed to track sold application licence. User licence input is tracked from the first sold date. The values like date of sold, number of licence sold, phone number, email, invoice  and othere relevant informations are stored in the H2 database. The application can track licence expiration and send notification prior licence expire.
 The all relevant information can be presented and printedas an PDF or Doc document.
 
-# How it works
+## How it works 
 
 The first step is to create customer and fill customer details form. 
 
@@ -22,7 +22,7 @@ On the home page you can preview sold licence, update, delete, or create PDF,Doc
 
 
 
-# Tech Stack
+## Tech Stack
 * [Spring Boot](https://spring.io/projects/spring-boot)
 * [Spring security](https://spring.io/projects/spring-security)
 * [Bootstrap](https://getbootstrap.com)
