@@ -1,12 +1,12 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+**The Licence Tracker application**
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+Licence tracker is designed to track sold application licence. User licence input is tracked from the first sold date. The values like date of sold, number of licence sold, phone number, email, invoice  and othere relevant informations are stored in the H2 database. The application can track licence expiration and send notification prior licence expire.
+The all relevant information can be presented and printedas an PDF or Doc document.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## How it works
 
----
+The first step is to create customer and fill customer detail form. 
 
-## Edit a file
 
 You’ll start by editing this README file to learn how to edit a file in Bitbucket.
 
