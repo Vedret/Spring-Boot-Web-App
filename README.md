@@ -5,7 +5,7 @@ The all relevant information can be presented and printedas an PDF or Doc docume
 
 ## How it works 
 
-The first step is to create customer and fill customer details form. 
+The first step is to create customer and fill customers details form. 
 
 ![Screenshot from 2020-11-17 10-55-42](https://user-images.githubusercontent.com/28749141/99377646-bded1900-28c6-11eb-8956-b72b62b7dc62.png)
 
